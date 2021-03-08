@@ -1,0 +1,58 @@
+@import '../../../sass/index.scss';
+.history-orders{
+    margin-top:r(45);
+    overflow: hidden;
+    .card {
+        width: 90%;
+        padding: r(4);
+        box-shadow: 0 0 r(2) antiquewhite;
+        margin: r(20) auto 0;
+        background-color: rgba(255, 85, 0, 0.18823529411764706);
+        border-radius: r(12);
+        .box {
+            display: flex;
+            justify-content: space-around;
+            padding: r(6);
+
+            img {
+                width: r(120);
+                height: r(120);
+            }
+            .add-time {
+                height: r(20);
+            }
+            .name-price {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 6rem;
+
+                .bookname {
+                    font-size: r(16);
+                    padding: r(10);
+                }
+
+                .price {
+                    font-size: r(30);
+                    color: red;
+                    text-align: center;
+                }
+            }
+        }
+        .num {
+            font-weight: bold;
+            font-size: r(14);
+            text-align: right;
+            padding-right: r(20);
+        }
+
+
+    }
+    .add-time{
+        text-align: left;
+        font-size: r(16);
+        color:#000;
+        font-weight: bold;
+        line-height: r(40);
+    }
+}

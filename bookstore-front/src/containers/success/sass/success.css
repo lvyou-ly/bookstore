@@ -1,0 +1,32 @@
+.nav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 500;
+}
+
+.success {
+  margin-top: 2.25rem;
+}
+
+.success .success-title {
+  font-size: 1rem;
+  text-align: center;
+  margin: 7.5rem auto 1rem;
+  color: green;
+}
+
+.success .success-icon {
+  margin: 0 auto 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: url(../imgs/success.jpg) no-repeat;
+  background-size: 2.5rem 2.5rem;
+  background-position: center;
+}
+
+.success .success-date {
+  text-align: center;
+  font-size: 0.25rem;
+  color: green;
+}

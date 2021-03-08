@@ -1,0 +1,54 @@
+@import '../../../sass//index.scss';
+.book-details{
+    margin-top:r(45);
+    .img-price{
+        display:flex;
+        justify-content: space-around;
+        margin-top: r(50);
+        padding:r(6);
+         img{
+            width:r(120);
+            height:r(120);
+        }
+        .name-price{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height:6rem;
+            .bookname{
+                font-size: r(16);
+                padding: r(10);
+            }
+            .price{
+                font-size: r(30);
+                color:red;
+                text-align: center;
+            }
+        }
+        
+    }
+    .introduce{
+        font-size: r(20);  
+        padding:2rem;  
+        margin-bottom: r(45);  
+    }
+    footer{
+        position: fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        button{
+            width:50%;
+            height: r(45);
+            font-size: r(18);
+            border:none;
+            color:#fff;
+        }
+        .add-chart {
+            background-color: brown;
+        }
+        .buy-immediate{
+            background-color: chocolate;
+        }
+    }
+}

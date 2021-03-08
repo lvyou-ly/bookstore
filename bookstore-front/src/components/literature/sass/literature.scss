@@ -1,0 +1,26 @@
+@import '../../../sass/index.scss';
+.literature{
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: r(40);
+    .card{
+        width:30%;
+        height:r(180);
+        margin:0 r(5) r(10);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        img{
+            width:100%;
+            height:r(100);
+        }
+        p{
+            font-size: r(15);
+            text-align: center;
+            margin:r(5);
+        }
+        .literature-price{
+            color:red;
+        }
+    }
+}

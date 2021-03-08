@@ -1,0 +1,154 @@
+.nav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 500;
+}
+
+.chart {
+  background-color: #eee;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  margin-top: 2.25rem;
+  min-height: 100vh;
+}
+
+.chart .top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem 1rem 0.5rem;
+  color: #ccc;
+}
+
+.chart .top-buttons .select-all {
+  display: flex;
+  align-items: center;
+}
+
+.chart .top-buttons .select-all div {
+  margin-right: 0.2rem;
+}
+
+.chart .checkbox {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 0.05rem solid #ccc;
+  box-sizing: border-box;
+}
+
+.chart .checkbox.selected {
+  border: none;
+  background-color: #108ee9;
+  position: relative;
+}
+
+.chart .checkbox.selected::before {
+  content: "";
+  position: absolute;
+  left: 21%;
+  top: 48%;
+  width: 0.3rem;
+  height: 0.1rem;
+  background-color: #fff;
+  border-radius: 0.1rem;
+  transform: rotateZ(45deg);
+}
+
+.chart .checkbox.selected::after {
+  content: "";
+  position: absolute;
+  right: 13%;
+  top: 43%;
+  width: 0.5rem;
+  height: 0.1rem;
+  background-color: #fff;
+  border-radius: 0.1rem;
+  transform: rotateZ(-45deg);
+}
+
+.chart .card {
+  padding: 0.2rem;
+  background-color: #fff;
+  width: 100%;
+  min-height: 6.4rem;
+  box-shadow: 0rem 0rem 0.1rem antiquewhite;
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chart .card .img-name-price {
+  display: flex;
+  height: 4rem;
+}
+
+.chart .card .img-name-price img {
+  width: 7rem;
+  height: 4rem;
+}
+
+.chart .card .img-name-price .bookname-price {
+  flex: 1;
+  margin-bottom: 1rem;
+  height: 4rem;
+}
+
+.chart .card .img-name-price .bookname-price .bookname {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #000;
+}
+
+.chart .card .img-name-price .bookname-price .price {
+  text-align: center;
+  font-size: 1.5rem;
+  color: red;
+  text-align: center;
+  line-height: 2rem;
+}
+
+.chart .card .bottom-line {
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem auto 0;
+}
+
+.chart .card .bottom-line .num {
+  margin-right: 0.5rem;
+}
+
+.chart .add-time {
+  text-align: left;
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: bold;
+  line-height: 2rem;
+}
+
+.chart footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.chart footer button {
+  width: 50%;
+  background-color: brown;
+  border: none;
+  text-align: center;
+  height: 2.5rem;
+  height: 2.25rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.chart footer button:nth-child(2) {
+  background-color: coral;
+}

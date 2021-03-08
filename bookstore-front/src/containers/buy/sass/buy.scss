@@ -1,0 +1,166 @@
+@import '../../../sass//index.scss';
+.buy {
+    background-color: #eee;
+    padding-bottom: r(5);
+    margin: r(45) auto r(50);
+    overflow-y: auto;
+
+    .title {
+        text-align: center;
+        line-height: r(40);
+        font-weight: bold;
+    }
+
+    .card {
+        width: 100%;
+        padding: r(4);
+        background-color: #fff;
+        box-shadow: r(0) r(0) r(2) antiquewhite;
+        margin-bottom: r(10);
+        .box {
+            display: flex;
+            justify-content: space-around;
+            padding: r(6);
+
+            img {
+                width: r(120);
+                height: r(120);
+            }
+
+            .name-price {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: r(120);
+
+                .bookname {
+                    font-size: r(16);
+                    padding: r(10);
+                }
+
+                .price {
+                    font-size: r(30);
+                    color: red;
+                    text-align: center;
+                }
+            }
+        }
+        .num {
+            font-weight: bold;
+            font-size: r(14);
+            text-align: right;
+            padding-right: r(20);
+        }
+
+
+    }
+
+    .add-time {
+        text-align: left;
+        font-size: r(16);
+        color: #000;
+        font-weight: bold;
+        line-height: r(40);
+    }
+
+    .goods-detail,
+    .check-addr {
+        text-align: center;
+        font-size: r(20);
+        font-weight: bold;
+    }
+
+    .goods-detail-box {
+        box-shadow: 0 0 r(40) #ddd;
+        background-color: mintcream;
+
+        .img-name-price {
+            display: flex;
+            height: r(100);
+
+            .img {
+                width: r(100);
+                height: r(100);
+            }
+
+            p {
+                margin: 0;
+            }
+
+            .name-price {
+                width: 50%;
+                height: r(100);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                .bookname,
+                .price {
+                    text-align: center;
+                    height: r(30);
+                    font-size: r(20);
+                    line-height: r(30);
+                    font-weight: bold;
+                }
+
+                .price {
+                    font-size: r(30);
+                    color: yellow;
+                    font-style: italic;
+                }
+
+            }
+        }
+
+        .intro {
+            width: r(300);
+            height: r(300);
+            text-align: center;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+    }
+
+    .addr-box {
+        width: 100%;
+        padding: r(4);
+        box-shadow: 0 0 r(40) #ddd;
+        background-color: #fff;
+
+        .addr-descripe {
+            text-align: center;
+            font-size: r(15);
+        }
+    }
+
+    .total-price {
+        font-size: r(16);
+        color: red;
+        font-weight: bold;
+        line-height: r(40);
+        padding-left: r(20);
+    }
+}
+footer {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+
+    button {
+        width: 50%;
+        background-color: brown;
+        border: none;
+        text-align: center;
+        height: r(45);
+        font-size: r(18);
+        color: #fff;
+    }
+
+    & button:nth-child(2) {
+        background-color: coral;
+    }
+}

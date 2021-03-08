@@ -1,0 +1,126 @@
+@import '../../../sass/index.scss';
+.picker-list .am-list-item .am-list-line .am-list-extra {
+    flex-basis: initial;
+  }
+  
+  .test {
+    position: relative;
+    border-bottom: 0;
+  }
+  
+  .test:after {
+    content: '';
+    position: absolute;
+    background-color: #ddd;
+    display: block;
+    z-index: 1;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: r(1);
+    -webkit-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
+  .mine {
+    padding: r(8);
+    margin-top:r(45);
+    min-height: 100vh;
+
+    .upload-img {
+      border-radius: 50% !important;
+  
+      img {
+        border-radius: 50% !important;
+      }
+    }
+      header {
+          display: flex;
+          justify-content: space-between;
+          .user-pic {
+              width: r(60);
+              height: r(60);
+              border-radius:  50%;
+              background:url(../images/head.jpg) no-repeat;
+              background-size: r(60) r(60);
+              background-position: center;
+          }
+          .nickname {
+              width: r(60);
+              height: r(60);
+              text-align: center;
+              line-height: r(60);
+              font-size: 1rem;
+              color: blue;
+              font-style: italic;
+              font-weight: bold;
+          }
+          margin-bottom: r(20);  
+      }
+      .modify-pass-head, .history-orders-head {
+        height: r(40);
+        margin-bottom: r(20); 
+        text-align: left;
+        line-height: r(40);
+        position: relative;
+        padding-left:r(20);
+        &::after {
+            content:"";
+            width: r(10);
+            height:r(10);
+            border-top:1px solid #999;
+            border-right: r(1) solid #999;
+            transform:rotate(45deg);
+            position: absolute;
+            top:r(15);
+            right: r(18);
+        }
+      }
+      .modify-pass-head {
+        background-color: rosybrown;
+        color: #fff;
+      }
+      .history-orders-head {
+        background-color: royalblue;
+        color: #fff;
+      }
+      .select-region {
+        height:r(40);
+        background-color: olivedrab;
+        .am-list-content,.am-list-extra{
+          color:#fff;
+          font-size: r(14);
+        }
+      }
+      .addr {
+          border: r(1) solid #333;
+          display:flex;
+          justify-content: center;
+          margin-top:r(20);
+          textarea {
+            padding: r(10) r(10) 0;
+            outline: none;
+            border: none;
+            height:r(100);
+          }
+      }
+      .btns {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: r(10);
+
+        .icon,.save {
+          display:inline-block;
+          width:r(40);
+          height:r(20);
+          text-align: center;
+          color:blue;
+          text-decoration: underline;
+        }
+      }
+  }

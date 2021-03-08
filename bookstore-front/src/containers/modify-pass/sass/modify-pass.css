@@ -1,0 +1,32 @@
+.nav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 500;
+}
+
+.modify-pass {
+  margin-top: 2.25rem;
+  height: 100vh;
+}
+
+.modify-pass .input {
+  height: 2rem;
+}
+
+.modify-pass .input input {
+  padding-left: 1rem;
+  width: 12rem;
+  height: 1.2rem;
+  outline: none;
+}
+
+.modify-pass button {
+  width: 100%;
+  height: 2.25rem;
+  font-size: 0.9rem;
+  border: none;
+  background-color: #108ee9;
+  color: #fff;
+  margin-top: 1.5rem;
+}

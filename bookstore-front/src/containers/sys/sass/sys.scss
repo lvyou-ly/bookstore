@@ -1,0 +1,36 @@
+@import '../../../sass/index.scss';
+.sys{
+    margin-top:r(45);
+    .btns{
+        display: flex;
+        justify-content: space-around;
+        position: fixed;
+        height: r(80);
+        top: r(40);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 200;
+        width: 100vw;
+        border-bottom: r(1) double burlywood;
+
+        p{
+            width:r(60);
+            height:r(40);
+            text-align: center;
+            line-height: r(40);
+            font-size: r(20);
+        }
+        .add-btn{
+           background-color: antiquewhite;
+        }
+        .del-btn{
+            background-color: rgba(255, 85, 0, 0.188235);
+        }
+        .alter-btn{
+            background-color: brown;
+        }
+        .find-btn{
+            background-color: chocolate;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@import '../../../sass/index.scss';
+.success{
+    margin-top:r(45);
+    .success-title{
+        font-size: r(20);
+        text-align: center;
+        margin: r(150) auto r(20);
+        color:green;
+    }
+    .success-icon{
+        margin:0 auto r(20);
+        width:r(50);
+        height:r(50);
+        background:url(../imgs/success.jpg) no-repeat;
+        background-size: r(50) r(50);
+        background-position: center;
+    }
+    .success-date{
+        text-align: center;
+        font-size: r(5);
+        color:green;
+    }
+}

@@ -1,0 +1,37 @@
+@import '../../../sass//index.scss';
+.alter{
+    margin-bottom: r(60);
+    margin-top: r(120);
+    height: r(470);
+    overflow: scroll;
+    h3{
+        margin-top: r(20);
+        border: none;
+        color: blue;
+        text-align: center;
+        }
+    h4{
+        margin-top: r(20);
+        border: none;
+        text-align: center;
+    }
+    .card{
+        border:1px solid #333;
+        width: r(340);
+        margin: r(20) auto;  
+        padding: r(10); 
+    }
+    button{
+        z-index: 200;
+        position: fixed;
+        bottom: 0;
+        border:none;
+        width:100vw;
+        height: r(45);
+        font-size: r(18);
+        left:50%;
+        transform: translateX(-50%);
+        background-color: #108ee9; 
+        color:#fff;
+    }
+}

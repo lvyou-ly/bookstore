@@ -1,0 +1,148 @@
+@import '../../../sass//index.scss';
+.chart {
+    background-color: #eee;
+    padding: r(20);
+    margin-bottom: r(50);
+    margin-top: r(45);
+    min-height: 100vh;
+
+    .top-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 r(10) r(20) r(10);
+        color: #ccc;
+
+        .select-all {
+            display: flex;
+            align-items: center;
+
+            div {
+                margin-right: r(4);
+            }
+        }
+    }
+
+    .checkbox {
+        width: r(20);
+        height: r(20);
+        border-radius: 50%;
+        border: r(1) solid #ccc;
+        box-sizing: border-box;
+
+        &.selected {
+            border: none;
+            background-color: #108ee9;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 21%;
+                top: 48%;
+                width: r(6);
+                height: r(2);
+                background-color: #fff;
+                border-radius: r(2);
+                transform: rotateZ(45deg);
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: 13%;
+                top: 43%;
+                width: r(10);
+                height: r(2);
+                background-color: #fff;
+                border-radius: r(2);
+                transform: rotateZ(-45deg);
+            }
+        }
+    }
+
+    .card {
+        padding: r(4);
+        background-color: #fff;
+        width: 100%;
+        min-height: r(128);
+        box-shadow: r(0) r(0) r(2) antiquewhite;
+        position: relative;
+        margin-bottom: r(20);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .img-name-price {
+            display: flex;
+            height: r(80);
+
+            img {
+                width: r(140);
+                height: r(80);
+            }
+
+            .bookname-price {
+                flex: 1;
+                margin-bottom: r(20);
+                height: r(80);
+
+                .bookname {
+                    text-align: center;
+                    font-size: r(15);
+                    color: #000;
+                }
+
+                .price {
+                    text-align: center;
+                    font-size: r(30);
+                    color: red;
+                    text-align: center;
+                    line-height: r(40);
+                }
+            }
+        }
+
+        .bottom-line {
+            width: r(300);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: r(10) auto 0;
+
+            .num {
+                margin-right: r(10);
+            }
+        }
+    }
+
+    .add-time {
+        text-align: left;
+        font-size: r(16);
+        color: #000;
+        font-weight: bold;
+        line-height: r(40);
+    }
+
+    footer {
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        button {
+            width: 50%;
+            background-color: brown;
+            border: none;
+            text-align: center;
+            height: r(50);
+            height: r(45);
+            font-size: r(18);
+            color: #fff;
+        }
+
+        & button:nth-child(2) {
+            background-color: coral;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@import '../../../sass/index.scss';
+.login {
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/bg.jpg) no-repeat;
+    background-size: 150vw 100vh;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+        color: blue;
+        position: relative;
+        top: r(-60);
+        font-size: r(25);
+    }
+    .input {
+        height: r(40);
+        input {
+            padding-left: r(20);
+            width: r(240);
+            height: r(24);
+            outline: none;
+        }
+    }
+    button {
+        width: r(264);
+        height: r(45);
+        font-size: r(18);
+        border: none;
+        background-color: #108ee9;
+        margin-top: r(30);
+        color:#fff;
+    }
+}

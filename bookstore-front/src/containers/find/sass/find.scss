@@ -1,0 +1,83 @@
+@import '../../../sass/index.scss';
+.find{
+    margin-bottom: r(40);
+    margin-top: r(120);
+    height: r(470);
+    overflow: scroll;
+    h3{
+        padding-left: r(20);
+        margin-top: r(20);
+        border: none;
+        color: blue;
+        text-align: center;
+    }
+    h4{
+        padding-left: r(20);
+        margin-top: r(20);
+        border: none;
+        text-align: center;
+    }
+    .find-res{
+        width:r(300);
+        height:r(180);
+        padding:r(20);
+        padding-bottom: r(5);
+        align-items: center;
+        background-color: bisque;
+        margin:r(20) auto;
+        .img-name-price{
+            display:flex;
+            height:r(100);
+            .img{
+                width:r(100);
+                height:r(100);
+            }
+            p{
+                margin:0;
+            }
+            .name-price{
+                width:50%;
+                height:r(100);
+                display:flex;
+                flex-direction: column;
+                justify-content: space-around;
+                .bookname,.price{
+                    text-align: center;
+                    height:r(30);
+                    font-size: r(20);
+                    line-height: r(30);                    
+                    font-weight: bold;
+                }
+                .price{
+                    font-size: r(30);
+                    color:red;
+                    font-style: italic;
+                }
+               
+            }  
+        }
+        .intro{
+            background-color: #fff;
+            width:r(300);
+            height:r(60);
+            text-align: center;
+           overflow-x:hidden;
+           overflow-y: scroll;
+           word-wrap: break-word;
+           word-break: break-all;
+        } 
+    }
+    button{
+        z-index: 200;
+        position: fixed;
+        bottom: 0;
+        border:none;
+        width:100vw;
+        height: r(45);
+        font-size: r(18);
+        left:50%;
+        transform: translateX(-50%);
+        background-color: #108ee9; 
+        color:#fff;
+    }
+}

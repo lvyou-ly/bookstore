@@ -1,0 +1,41 @@
+@import '../../../sass/index.scss';
+.books {
+    border-bottom: r(1) solid red;
+    margin-bottom: r(10);
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: r(40);
+    .card{
+        width: 30%;
+        height: r(120);
+        margin: 0 r(5) r(10);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        img{
+            width:100%;
+            height:r(60);
+        }
+        p{
+            font-size: r(15);
+            text-align: center;
+            margin:r(5);
+        }
+    }
+    .people-like {
+        font-size: r(20);
+        color: blue;
+    }
+    .book-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width:100%;
+        .book {
+            display: block;
+            width: r(100);
+            height: r(80);
+        }
+    }
+    
+}

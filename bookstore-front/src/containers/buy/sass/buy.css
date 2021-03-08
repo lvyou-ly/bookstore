@@ -1,0 +1,172 @@
+.nav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 500;
+}
+
+.buy {
+  background-color: #eee;
+  padding-bottom: 0.25rem;
+  margin: 2.25rem auto 2.5rem;
+  overflow-y: auto;
+}
+
+.buy .title {
+  text-align: center;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+.buy .card {
+  width: 100%;
+  padding: 0.2rem;
+  background-color: #fff;
+  box-shadow: 0rem 0rem 0.1rem antiquewhite;
+  margin-bottom: 0.5rem;
+}
+
+.buy .card .box {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.3rem;
+}
+
+.buy .card .box img {
+  width: 6rem;
+  height: 6rem;
+}
+
+.buy .card .box .name-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 6rem;
+}
+
+.buy .card .box .name-price .bookname {
+  font-size: 0.8rem;
+  padding: 0.5rem;
+}
+
+.buy .card .box .name-price .price {
+  font-size: 1.5rem;
+  color: red;
+  text-align: center;
+}
+
+.buy .card .num {
+  font-weight: bold;
+  font-size: 0.7rem;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.buy .add-time {
+  text-align: left;
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: bold;
+  line-height: 2rem;
+}
+
+.buy .goods-detail,
+.buy .check-addr {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.buy .goods-detail-box {
+  box-shadow: 0 0 2rem #ddd;
+  background-color: mintcream;
+}
+
+.buy .goods-detail-box .img-name-price {
+  display: flex;
+  height: 5rem;
+}
+
+.buy .goods-detail-box .img-name-price .img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.buy .goods-detail-box .img-name-price p {
+  margin: 0;
+}
+
+.buy .goods-detail-box .img-name-price .name-price {
+  width: 50%;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.buy .goods-detail-box .img-name-price .name-price .bookname,
+.buy .goods-detail-box .img-name-price .name-price .price {
+  text-align: center;
+  height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+
+.buy .goods-detail-box .img-name-price .name-price .price {
+  font-size: 1.5rem;
+  color: yellow;
+  font-style: italic;
+}
+
+.buy .goods-detail-box .intro {
+  width: 15rem;
+  height: 15rem;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.buy .addr-box {
+  width: 100%;
+  padding: 0.2rem;
+  box-shadow: 0 0 2rem #ddd;
+  background-color: #fff;
+}
+
+.buy .addr-box .addr-descripe {
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.buy .total-price {
+  font-size: 0.8rem;
+  color: red;
+  font-weight: bold;
+  line-height: 2rem;
+  padding-left: 1rem;
+}
+
+footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+}
+
+footer button {
+  width: 50%;
+  background-color: brown;
+  border: none;
+  text-align: center;
+  height: 2.25rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+footer button:nth-child(2) {
+  background-color: coral;
+}

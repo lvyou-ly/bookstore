@@ -1,0 +1,18 @@
+@import '../../../sass/index.scss';
+.fail{
+    margin-top:r(45);
+    .fail-title{
+        font-size: r(20);
+        text-align: center;
+        margin: r(150) auto r(20);
+        color:green;
+    }
+    .fail-icon{
+        margin:0 auto r(20);
+        width:r(50);
+        height:r(50);
+        background:url(../imgs/fail.jpg) no-repeat;
+        background-size: r(50) r(50);
+        background-position: center;
+    }
+}

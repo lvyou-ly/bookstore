@@ -1,0 +1,1 @@
+.nav{position:fixed;width:100vw;top:0;z-index:500}.comics{display:flex;flex-wrap:wrap;margin-bottom:2rem}.comics .card{width:30%;height:9rem;margin:0 .25rem .5rem;display:flex;flex-direction:column;justify-content:space-between}.comics .card img{width:100%;height:5rem}.comics .card p{font-size:.75rem;text-align:center;margin:.25rem}.comics .card .comics-price{color:red}

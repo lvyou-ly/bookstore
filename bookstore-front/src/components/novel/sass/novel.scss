@@ -1,0 +1,29 @@
+@import '../../../sass/index.scss';
+.novel{
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: r(40);
+    .card{
+        width: 30%;
+        height: r(180);
+        margin: 0 r(5) r(10);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        img{
+            width:100%;
+            height:r(100);
+        }
+        p{
+            font-size: r(15);
+            text-align: center;
+            margin:r(5);
+        }
+        .novel-price{
+            color:red;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@import '../../../sass/index.scss';
+.link { 
+    font-size: r(16);
+    text-decoration: underline;
+    color:blue;
+    margin:0;
+    width: r(40);
+    height: r(40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

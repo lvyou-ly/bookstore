@@ -1,0 +1,113 @@
+@import '../../../sass/index.scss';
+.main {
+    padding: r(8);
+    margin-top:r(45);
+    header {
+        display: flex;
+        justify-content: space-between;
+        .icon {
+            width: r(40);
+            height: r(40);
+            border-radius: 50%;
+            background:url(../images/icon.jpg) no-repeat;
+            background-size: r(40) r(40);
+            background-position: center;
+        }
+        .search-box {
+            flex: 1;
+            height: r(40);
+            border: r(1) solid #eaeaea;
+            border-radius: r(40);
+            display: flex;
+            align-items: center;
+            margin-left: r(17);
+            input {
+                width: r(140);
+                height: r(23);
+                border: none;
+                margin-left: r(11);
+                outline: none;
+            }
+            .searchIcon {
+                background: url(../images/search.jpg) no-repeat;
+                background-size: r(90) r(30);
+                width: r(30);
+                height: r(30);
+                background-position: center;
+            }
+        }
+        .login-register-mine {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: r(100);
+            height: r(40);
+        }
+        .exitLogin {
+            font-size: r(16);
+            text-decoration: underline;
+            color:blue;
+            margin:0;
+            width: r(40);
+            height: r(40);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .my-swiper {
+        height: r(120);
+        margin-top: r(10);
+    }
+    .segments{
+        width:100%;
+        height: r(40);
+        display: flex;
+        align-items: center;
+        margin-bottom: r(20);
+        .active {
+            border-bottom: r(1) solid blue;
+        } 
+    .segment {
+        width: 20%;
+        height: 100%;
+        text-align: center;
+    }  
+    }
+    .content {
+        width: 100%;
+        height: auto;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: r(40);
+        background-color: #fff;
+        .chart-bottom {
+            width: r(60);
+            height: r(60);
+            margin: 0 auto;
+            background-image:url(../images/chart.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: r(60) r(60);
+            position: relative;
+            bottom: r(20);
+        }
+        .goods-num{
+            position: relative;
+            left: r(40);
+            width:r(20);
+            height:r(20);
+            border-radius: 50%;
+            background: red;
+            color:#fff;
+            font-size: r(12);
+            text-align: center;
+            line-height: r(20);
+        }
+    }
+}
+

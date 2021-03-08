@@ -1,0 +1,145 @@
+.nav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 500;
+}
+
+.picker-list .am-list-item .am-list-line .am-list-extra {
+  flex-basis: initial;
+}
+
+.test {
+  position: relative;
+  border-bottom: 0;
+}
+
+.test:after {
+  content: '';
+  position: absolute;
+  background-color: #ddd;
+  display: block;
+  z-index: 1;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.05rem;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.mine {
+  padding: 0.4rem;
+  margin-top: 2.25rem;
+  min-height: 100vh;
+}
+
+.mine .upload-img {
+  border-radius: 50% !important;
+}
+
+.mine .upload-img img {
+  border-radius: 50% !important;
+}
+
+.mine header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.mine header .user-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: url(../images/head.jpg) no-repeat;
+  background-size: 3rem 3rem;
+  background-position: center;
+}
+
+.mine header .nickname {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  font-size: 1rem;
+  color: blue;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.mine .modify-pass-head, .mine .history-orders-head {
+  height: 2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  line-height: 2rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.mine .modify-pass-head::after, .mine .history-orders-head::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-top: 1px solid #999;
+  border-right: 0.05rem solid #999;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+}
+
+.mine .modify-pass-head {
+  background-color: rosybrown;
+  color: #fff;
+}
+
+.mine .history-orders-head {
+  background-color: royalblue;
+  color: #fff;
+}
+
+.mine .select-region {
+  height: 2rem;
+  background-color: olivedrab;
+}
+
+.mine .select-region .am-list-content, .mine .select-region .am-list-extra {
+  color: #fff;
+  font-size: 0.7rem;
+}
+
+.mine .addr {
+  border: 0.05rem solid #333;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.mine .addr textarea {
+  padding: 0.5rem 0.5rem 0;
+  outline: none;
+  border: none;
+  height: 5rem;
+}
+
+.mine .btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.mine .btns .icon, .mine .btns .save {
+  display: inline-block;
+  width: 2rem;
+  height: 1rem;
+  text-align: center;
+  color: blue;
+  text-decoration: underline;
+}
