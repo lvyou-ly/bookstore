@@ -22,7 +22,7 @@
         padding:r(20);
         padding-bottom: r(4.5);
         align-items: center;
-        background-color: rgba(255, 85, 0, 0.188235);
+        background-color: rgba(16, 142,233,0.5);;
         margin:1rem auto;
         position: relative;
         .circle{
@@ -48,6 +48,7 @@
                 flex-direction: column;
                 justify-content: space-around;
                 .bookname,.price{
+                    color: #fff;
                     text-align: center;
                     font-size: r(20);
                     line-height: r(30);                    
@@ -70,7 +71,7 @@
             overflow-y: scroll;
             word-wrap: break-word;
             word-break: break-all;
-            box-shadow: 0 0 r(2) antiquewhite;
+            box-shadow: 0 0 r(2) rgba(16, 142,233,0.5);
         } 
     }
     button{

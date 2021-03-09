@@ -1,20 +1,16 @@
 import React from 'react';
+import {connect} from "react-redux";
+import Cookies from "js-cookie";
+import { NavBar, Toast, Carousel, WingBlank,  } from 'antd-mobile';
 import "./sass/main.scss";
+import {changeMainConent, updateUser} from "../../redux/action";
+import { reqGetUser } from '../../api/index';
 import LoginLink from "../../components/login-link/login-link.jsx";
 import RegisterLink from "../../components/register-link/register-link.jsx";
 import MineLink from "../../components/mine-link/mine-link";
 import FavouriteBooks from "../../components/favorite-books/favorite-books.jsx";
 import Content from "../../components/content/content";
-import {connect} from "react-redux";
-import {changeMainConent, login} from "../../redux/action";
 import SearchResult from "../../components/search-result/search-result";
-import Cookies from "js-cookie";
-import { NavBar, Toast  } from 'antd-mobile';
-import { reqGetUser } from '../../api/index';
-import { 
-    Carousel, 
-    WingBlank,
-} from "antd-mobile";
 class Main extends React.Component {
     constructor (props) {
         super(props);
@@ -27,7 +23,6 @@ class Main extends React.Component {
                {id:"strive",text:"励志"},
                {id:"famousbook",text:"名著"}
             ],
-            toChart:"",
             bookname:"",
             showSearchRes: false,
             goodsNum: 0,
@@ -48,23 +43,28 @@ class Main extends React.Component {
         this.setState({showSearchRes:true});
     }
     async componentDidMount(){
-        if(this.props.user && this.props.user.username) {
-            this.setState({ goodsNum: this.props.user.chart.length });
+        // 计算购物车商品数量
+        let goodsNum = 0;
+        if(this.props.user && this.props.user.chart) {
+            this.props.user.chart.forEach(item => goodsNum = goodsNum + item.count);
+            this.setState({ goodsNum });
         } else if(Cookies.get('token')){
             let response = await reqGetUser();
             if (response.code === 0) {
-                let goodsNum = 0;
                 response.data.chart.forEach(item => goodsNum = goodsNum + item.count);
                 this.setState({ goodsNum });
+                this.props.updateUser(response.data);
             } else {
                 Toast.info(response.msg);
             }
         }
     }
     selectContent(key){
+        // 切换图书组件
         this.props.changeMainConent(key);
     }
     jumpBookDetail() {
+        console.log('jumpBookDetail')
         this.props.history.push('/bookdetails');
     }
     jumpToMine() {
@@ -79,12 +79,12 @@ class Main extends React.Component {
     }
     exitLogin () {
         Cookies.remove("token");
-        login({username:"", pass:"", tel:"", msg:"", redirectTo: '', });
-        this.setState({toLogin:true});
+        this.props.updateUser({username:"", tel:"", msg:"", redirectTo: '', });
+        console.log('main', this.props.user)
     }
    async changeBookname(e){
         if(e.target.value===""){
-            await this.setState({showSearchRes:false});
+            this.setState({showSearchRes:false});
             return;
         }
         this.setState({bookname:e.target.value});
@@ -109,7 +109,7 @@ class Main extends React.Component {
                         <i className="searchIcon" onClick={this.search.bind(this)}></i>
                    </div>
                         {
-                            document.cookie.includes("token")?
+                            Cookies.get("token")?
                              (<div className="login-register-mine">
                                 <MineLink jumpToMine={this.jumpToMine}></MineLink>
                                 /
@@ -164,6 +164,6 @@ class Main extends React.Component {
     }
 }
 export default connect(
-    (state)=>({main:state.main,chart:state.chart, user: state.user}),
-    {changeMainConent}
+    (state)=>({main:state.main,user: state.user}),
+    {changeMainConent, updateUser}
 )(Main);

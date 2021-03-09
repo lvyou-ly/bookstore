@@ -46,9 +46,6 @@ class Add extends React.Component{
    changeBookType=(booktype)=>{
     this.setState({booktype:booktype[0]});
    }
-   componentWillMount(){
-       console.log("prps",this.props)
-   }
     render(){
         return (
             <div className="add">

@@ -22,6 +22,15 @@
             text-align: center;
             margin:r(5);
         }
+        .novel-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-break: break-all;
+            // display: -webkit-box;
+            // -webkit-line-clamp: 2;
+            // -webkit-box-orient: vertical;
+        }
         .novel-price{
             color:red;
         }

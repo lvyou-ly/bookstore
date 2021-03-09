@@ -51,7 +51,9 @@ class FavouriteBooks extends React.Component {
         );
     }
 }
-export default connect(
+const A =  connect(
     (state)=>({bookdetail:state.bookdetail}),
     {changeBookDetail}
 )(FavouriteBooks);
+console.log('WrappedComponent', A.WrappedComponent);
+export default A

@@ -2,7 +2,8 @@ import React from "react";
 import "./sass/history-orders.scss";
 import {reqGetUser} from "../../api/index";
 import { NavBar,Icon  } from 'antd-mobile';
-export default class HistoryOrders extends React.Component{
+import {connect} from 'react-redux';
+class HistoryOrders extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -10,8 +11,14 @@ export default class HistoryOrders extends React.Component{
         }
     }
     async componentDidMount(){
-        const response=await reqGetUser();
-        this.setState({historyOrders:response.data.historyOrders});
+        let historyOrders = null;
+        if (this.props.user.historyOrders) {
+            historyOrders = this.props.user.historyOrders;
+        } else {
+            const response=await reqGetUser();
+            historyOrders = response.data.historyOrders;
+        }
+        this.setState({historyOrders});
     }
     back(){
         this.props.history.goBack();
@@ -48,3 +55,6 @@ export default class HistoryOrders extends React.Component{
         );
     }
 }
+export default connect(
+    state => ({ user: state.user })
+)(HistoryOrders);

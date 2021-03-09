@@ -9,11 +9,16 @@ export default class Find extends React.Component{
             bookname:"",
             res:[],
             showTip:false,
+            searchTimer: null
         }
         this.find=this.find.bind(this);
     }
     changeBookname=(v)=>{
         this.setState({bookname:v});
+        this.searchTimer && clearTimeout(this.searchTimer);
+        this.searchTimer = setTimeout(() => {
+            this.find();
+        }, 500);
     }
     async find(){
        const response=await reqFindBook({bookname:this.state.bookname});
@@ -24,6 +29,9 @@ export default class Find extends React.Component{
            Toast.info(response.msg,1);
        }
        this.setState({showTip:true});
+    }
+    componentWillUnmount() {
+        this.searchTimer && clearTimeout(this.searchTimer);
     }
     render(){
         return (
@@ -53,9 +61,7 @@ export default class Find extends React.Component{
                         )
                     })
                 }
-                
-                <button onClick={this.find}>查询</button>
-            </div>
+                </div>
         );
     }
 }

@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  background-color: #fff !important;
+}
+
 .nav {
   position: fixed;
   width: 100vw;
@@ -35,7 +40,7 @@
   margin: 0.25rem;
 }
 
-.search-result .card .novel-price {
+.search-result .card .price {
   color: red;
 }
 

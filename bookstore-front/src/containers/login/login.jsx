@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {login} from "../../redux/action";
 import {Redirect} from "react-router-dom";
 import {Toast} from "antd-mobile";
+import Cookies from 'js-cookie';
 class Login extends React.Component{
     constructor(props){
         super(props);
@@ -24,7 +25,8 @@ class Login extends React.Component{
        Toast.info(this.props.user.msg,1);
     }
     render () {
-        if(this.props.user.redirectTo&&document.cookie.includes("token")){
+        if(this.props.user.redirectTo&&Cookies.get("token")){
+            console.log('redirect', this.props.user)
             return (
                 <Redirect to={this.props.user.redirectTo}></Redirect>
             );

@@ -11,7 +11,6 @@ import {
 } from "./action-type";
 const initUser={
     username:"",
-    pass:"",
     tel:"",
     msg:"",
     redirectTo: '',

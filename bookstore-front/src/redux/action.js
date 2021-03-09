@@ -28,9 +28,6 @@ export const register= ({username,pass,tel})=> {
 export const changeMainConent=(isActive)=>({type:CHANGE_MAIN_CONTENT,data:isActive});
 //分发登录的异步action
 export const login=(user)=>{
-    if(!user.username) {
-        return updateUser(user);
-    }
     return async dispatch=>{
         const response=await reqLogin(user);
         if(response.code===0){
@@ -45,15 +42,13 @@ export const login=(user)=>{
 export const updateChartAsync = ({ book }) => {
     return async dispatch => {
         const response = await reqUpdateChart({ book });
-        dispatch(updateChart(response));
+        dispatch(updateUser({ chart: response.data, code: response.code }));
     }
 }
 //更改sys页功能面板的同步action
 export const changeSysArea=(showArea)=>({type:CHANGE_SYS_AREA,data:showArea});
 //分发上传图片url的同步action
 export const uploadimg=(url)=>({type:UPLOAD_IMAGE_URL,data:url});
-//分发更新购物车（添加或删除）的同步action
-export const updateChart=(chart)=>({type:UPDATE_CHART,data:chart});
 //分发查看商品详情的同步action
 export const changeBookDetail=(item)=>({type:BOOK_DETAIL,data:item});
 // 更新要购买图书的数组toBuy

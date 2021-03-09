@@ -123,24 +123,24 @@ router.post("/del", function (req, res) {
   const {
     ids
   } = req.body;
-  BookModel.remove({
-    _id: {
-      $all: ids
-    }
-  }, function (err) {
-    if (err) {
-      return res.send({
-        code: 1,
-        data: err,
-        msg: "部分删除失败！"
-      });
-    }
-    res.send({
-      code: 0,
-      data: {},
-      msg: "全部删除成功！"
-    });
+  ids.forEach(_id => {
+    BookModel.remove({
+      _id
+    }, function (err) {
+      if (err) {
+        return res.send({
+          code: 1,
+          data: err,
+          msg: "部分删除失败！"
+        });
+      }
+    })
   })
+  res.send({
+    code: 0,
+    data: {},
+    msg: "全部删除成功！"
+  });
 })
 /**改 */
 router.post("/alter", function (req, res) {

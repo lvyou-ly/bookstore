@@ -1,7 +1,6 @@
 import React from "react";
 import "./sass/buy.scss";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { reqBuyBook, reqGetUser } from "../../api/index";
 import { NavBar, Icon, Toast } from 'antd-mobile';
 import { district } from 'antd-mobile-demo-data';
@@ -29,11 +28,13 @@ class Buy extends React.Component {
         let thirdLevelAddr = secondLevelAddr.children.filter(item => (item.value === addr[2]))[0];
         let absoluteAddr = `${firstLevelAddr.label} ${secondLevelAddr.label} ${thirdLevelAddr.label} ${addr[3]}`;
         let total = 0, toBuy = null;
+        // 从购物车跳转而来
         if (Array.isArray(this.props.toBuy)) {
-            this.props.toBuy.forEach(item => total += item.bookprice);
-            total = Math.floor(total * 10) / 10;
+            this.props.toBuy.forEach(item => total += item.bookprice * 100);
+            total = Math.floor(total) / 100;
             toBuy = this.props.toBuy;
         } else {
+            // 从商品详情页跳转而来
             total = this.props.toBuy.bookprice;
             toBuy = [ this.props.toBuy ];
         }

@@ -41,33 +41,34 @@ class Mine extends React.Component {
         this.props.history.push('/ModifyPass');
     }
    async editAddr(e){
-      await this.setState({specialAddr:e.target.value});
+    this.setState({specialAddr:e.target.value});
     }
    async startEdit(e){
-        await this.setState({isReadOnly:false});
+        this.setState({isReadOnly:false});
         this.refs.input.focus();
     }
     async saveAddr(){
         if(this.state.pickerValue.length<1){
             return Toast.info("请先选择收获地址");
-        }
-        else if(!this.state.specialAddr){
+        } else if(!this.state.specialAddr){
             return Toast.info("请先输入地址");
         }
-        await this.setState({isReadOnly:true});
+        this.setState({isReadOnly:true});
         let addr=this.state.pickerValue;
         addr.push(this.state.specialAddr);
         const response=await reqSaveAddr({addr});
         Toast.info(response.msg);
     }
+    changeAddr(v) {
+        this.setState({ pickerValue: v });
+    }
     render () {
-        const _this=this;
         return (
             <>
             <NavBar
                 mode="dark"
                 icon={<Icon type="left" />}
-                onLeftClick={_this.back.bind(this)}
+                onLeftClick={this.back.bind(this)}
                 className="nav"
             >图书商城</NavBar>
             <div className="mine">
@@ -83,11 +84,10 @@ class Mine extends React.Component {
                 <div className="history-orders-head" onClick={this.toHistoryPage.bind(this)}>历史订单</div>
                 <Picker
                     title="选择地区"
-                    extra="请选择(可选)"
+                    extra="请选择"
                     data={district}
                     value={this.state.pickerValue}
-                    onChange={v => this.setState({ pickerValue: v })}
-                    onOk={(v,e) => {this.setState({ pickerValue: v });}}
+                    onOk={this.changeAddr.bind(this)}
                    >
                  <List.Item
                  className="select-region"

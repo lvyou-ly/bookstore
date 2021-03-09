@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  background-color: #fff !important;
+}
+
 .nav {
   position: fixed;
   width: 100vw;
@@ -32,7 +37,7 @@
   padding: 1rem;
   padding-bottom: 0.225rem;
   align-items: center;
-  background-color: rgba(255, 85, 0, 0.188235);
+  background-color: rgba(16, 142, 233, 0.5);
   margin: 1rem auto;
   position: relative;
 }
@@ -67,6 +72,7 @@
 }
 
 .del .card .img-name-price .name-price .bookname, .del .card .img-name-price .name-price .price {
+  color: #fff;
   text-align: center;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -88,7 +94,7 @@
   overflow-y: scroll;
   word-wrap: break-word;
   word-break: break-all;
-  box-shadow: 0 0 0.1rem antiquewhite;
+  box-shadow: 0 0 0.1rem rgba(16, 142, 233, 0.5);
 }
 
 .del button {

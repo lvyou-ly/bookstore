@@ -11,8 +11,8 @@ class BookDetails extends React.Component {
             res: {},
         }
     }
-    async componentWillMount() {
-        await this.setState({ res: this.props.bookdetail.item });    
+    componentWillMount() {
+        this.setState({ res: this.props.bookdetail.item });    
     }
     componentWillUnmount(){
         this.timer && clearTimeout(this.timer);
@@ -27,15 +27,15 @@ class BookDetails extends React.Component {
         let second=now.getSeconds();
         return `${year}-${month.toString().padStart(2,0)}-${day.toString().padStart(2,0)}-${hour.toString().padStart(2,0)}-${minute.toString().padStart(2,0)}-${second.toString().padStart(2,0)}`;
     }
-    async jumpToMain(){
+    async addChart(){
         if(!Cookies.get('token')) {
-            this.props.updateUser({ redirectTo: '/bookdetails' });
             this.props.history.push('/login');
             Toast.info('请先登录！');
             return;
         }
         await this.props.updateChartAsync({ book: JSON.stringify(this.state.res) });
-        Toast.info(this.props.chartRes.code === 0 ? '添加成功' : '网络请求出错，请稍后重试');
+        console.log('chart', this.props.user);
+        Toast.info(this.props.user.code === 0 ? '添加成功' : '网络请求出错，请稍后重试');
         this.timer = setTimeout(() => {
             this.props.history.push('/');
         }, 1000);       
@@ -45,8 +45,7 @@ class BookDetails extends React.Component {
     }
     async buy(){
         if(!Cookies.get('token')) {
-            this.props.updateUser({ redirectTo: '/bookdetails' });
-            await this.setState({toLogin: true});
+            this.props.history.push('/login');
             Toast.info('请先登录！');
             return;
         }
@@ -69,13 +68,12 @@ class BookDetails extends React.Component {
                      <div className="bookname">{this.state.res.bookname}</div>
                      <div className="price">￥{this.state.res.bookprice}</div>
                     </div>
-                    
                 </div>
                 <div className="introduce">
                     详情：{this.state.res.bookintro}
                 </div>
                 <footer>
-                    <button className="add-chart" onClick={this.jumpToMain.bind(this)}>加入购物车</button>
+                    <button className="add-chart" onClick={this.addChart.bind(this)}>加入购物车</button>
                     <button className="buy-immediate" onClick={this.buy.bind(this)}>立即购买</button>
                 </footer>
             </div>
@@ -84,6 +82,6 @@ class BookDetails extends React.Component {
     }
 }
 export default connect(
-    (state) => ({ chartRes: state.chart,bookdetail:state.bookdetail }),
+    (state) => ({ bookdetail:state.bookdetail, user: state.user }),
     {updateChartAsync, updateToBuy, updateUser}
 )(BookDetails);

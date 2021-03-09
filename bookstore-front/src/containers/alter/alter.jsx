@@ -19,16 +19,20 @@ class Alter extends React.Component{
             res:[],
             updates:[],
             showTip:false,
-            booktype:""
+            booktype:"",
+            searchTimer: null,
         }
     }
-    async inputHandler(v){
-        await this.setState({bookname:v});
-        const response=await reqFindBook({bookname:this.state.bookname});
-        if(response.code===0){
-            this.setState({res:response.data});
-        }
-        this.setState({showTip:true});
+    inputHandler(v){
+        this.setState({bookname:v});
+        this.searchTimer && clearTimeout(this.searchTimer);
+        this.searchTimer = setTimeout(async () => {
+            const response=await reqFindBook({bookname:this.state.bookname});
+            if(response.code===0){
+                this.setState({res:response.data});
+            }
+            this.setState({showTip:true});
+        }, 500);
     }
     async changeInfo(key,index,value){
         if(key==="booktype"){
@@ -39,17 +43,16 @@ class Alter extends React.Component{
         let update=res[index];
         update={...update,[key]:value};
         res[index]=update;
-        await this.setState({res});        
+        this.setState({res});        
         let obj=null;
         obj=updates.find(item=>item._id==update._id);
         if(obj){
             let i=updates.indexOf(obj);
             updates[i]={...updates[i],...update};
-            await this.setState({updates});
         } else {
             updates.push(update);
-            await this.setState({updates});
         }
+        this.setState({updates});
     }
    async modify(){
     let isUpdateAll=true;
@@ -62,14 +65,13 @@ class Alter extends React.Component{
     });
     if(isUpdateAll){
         Toast.info(`修改成功！共有${this.state.updates.length}条修改记录`,2);
-        const response=await reqFindBook({bookname:this.state.bookname});
-            if(response.code===0){
-               await this.setState({res:response.data});
-               this.setState({updates:[]});
-            }
+        this.setState({updates:[]});
     } else {
         Toast.info("未能全部更新！",2);
     }
+    }
+    componentWillUnmount() {
+        this.searchTimer && clearTimeout(this.searchTimer);
     }
     render(){
         return (
@@ -94,10 +96,7 @@ class Alter extends React.Component{
                             </div>
                         )
                     })
-                }
-               
-                
-               
+                } 
                 <button onClick={this.modify.bind(this)}>确定修改</button>
             </div>
         );

@@ -9,9 +9,8 @@ class Chart extends React.Component {
         super(props);
         this.state = {
             chart: [],
-            toBuy: false,
-            backToMain: false,
             selectAll: false,
+            selectItems: 0,
         }
     }
     async componentDidMount() {
@@ -25,14 +24,14 @@ class Chart extends React.Component {
         // 添加selected属性，表示商品是否被选中，调用接口时要把此属性再删掉
         chart.forEach(item => item.selected = false);
         this.setState({ chart });
-        console.log('chart', this.state.chart)
     }
     selectItem (index) {
         this.setState(prevState => {
             let newChart = [ ...prevState.chart ];
             let newItem = { ...newChart[index], selected: !newChart[index].selected };
             newChart.splice(index, 1, newItem);
-            return prevState.chart[index].selected ? { chart: newChart, selectAll: false } : { chart: newChart };
+            let selectItems = newItem.selected ? prevState.selectItems + 1 : prevState.selectItems - 1;
+            return { chart: newChart, selectAll: selectItems === newChart.length, selectItems };
         })
     }
     async buyEvent() {
@@ -59,7 +58,7 @@ class Chart extends React.Component {
             flag = false;
         }
         chart.forEach(item => item.selected = flag);
-        this.setState(prevState => ({ selectAll: !prevState.selectAll, chart }));
+        this.setState(prevState => ({ selectAll: !prevState.selectAll, chart, selectItems: flag ? chart.length : 0 }));
     }
     async del() {
         let delBooks = this.state.chart.filter(item => {
@@ -69,7 +68,9 @@ class Chart extends React.Component {
             }
         });
         await this.props.updateChartAsync({ book: JSON.stringify(delBooks) });
-        this.setState({ chart: this.props.chart });
+         this.setState(prevState => {
+            return { chart: this.props.chart, selectItems: prevState.selectItems - delBooks.length };
+        });
     }
     render() {
         return (
@@ -118,6 +119,6 @@ class Chart extends React.Component {
     }
 }
 export default connect(
-    (state) => ({ chart: state.chart.data, bookdetail: state.bookdetail }),
+    (state) => ({ chart: state.user.chart, bookdetail: state.bookdetail }),
     { changeBookDetail, updateChartAsync, updateToBuy }
 )(Chart);

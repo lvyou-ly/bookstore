@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  background-color: #fff !important;
+}
+
 .nav {
   position: fixed;
   width: 100vw;
@@ -29,6 +34,13 @@
   font-size: 0.75rem;
   text-align: center;
   margin: 0.25rem;
+}
+
+.literature .card .literature-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
 }
 
 .literature .card .literature-price {

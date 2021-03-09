@@ -9,10 +9,10 @@ class Comics extends React.Component{
         this.state={
             res:[],
         }
-    }
+    }     
     async componentWillMount(){
         const response=await reqFindBook({"booktype":"动漫"});
-        await this.setState({res: response.data});
+        this.setState({res: response.data});
     } 
     jumpBookDetail(item){
         item.count=1;
@@ -27,15 +27,7 @@ class Comics extends React.Component{
                         return (
                             <div className="card" key={index} onClick={this.jumpBookDetail.bind(this,item)}>
                                 <img src={item.img} alt=""/>
-                                <p className="comics-name"
-                                    style={{
-                                        "overflow": "hidden",
-                                        "textOverflow": "ellipsis",
-                                        "display": "-webkit-box",
-                                        "WebkitLineClamp": "2",
-                                        "WebkitBoxOrient": "vertical"
-                                    }}
-                                >{item.bookname}</p>
+                                <p className="comics-name">{item.bookname}</p>
                                 <p className="comics-price">￥{item.bookprice}</p>
                             </div>
                         )

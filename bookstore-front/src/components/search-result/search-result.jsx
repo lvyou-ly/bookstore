@@ -28,8 +28,8 @@ class SearchResult extends React.Component{
                             return (
                                 <div className="card" key={index} onClick={this.jumpBookDetail.bind(this,item)}>
                                     <img src={item.img} alt=""/>
-                                    <p className="novel-name">{item.bookname}</p>
-                                    <p className="novel-price">￥{item.bookprice}</p>
+                                    <p className="name">{item.bookname}</p>
+                                    <p className="price">￥{item.bookprice}</p>
                                 </div>
                             )
                         })

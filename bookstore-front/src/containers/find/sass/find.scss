@@ -23,7 +23,7 @@
         padding:r(20);
         padding-bottom: r(5);
         align-items: center;
-        background-color: bisque;
+        background-color: rgba(16, 142,233,0.5);;
         margin:r(20) auto;
         .img-name-price{
             display:flex;
@@ -61,10 +61,11 @@
             width:r(300);
             height:r(60);
             text-align: center;
-           overflow-x:hidden;
-           overflow-y: scroll;
-           word-wrap: break-word;
-           word-break: break-all;
+            overflow-x:hidden;
+            overflow-y: scroll;
+            word-wrap: break-word;
+            word-break: break-all;
+            box-shadow: 0 0 r(2) rgba(16, 142,233,0.5);
         } 
     }
     button{

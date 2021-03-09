@@ -7,54 +7,54 @@ export default class Del extends React.Component {
         super(props);
         this.state = {
             bookname: "",
+            // 查询结果
             res: [],
-            iconColor: [],
+            // 保存被选中的书籍id
             selectedCards: [],
             showTip:false,
+            searchTimer: null,
         }
         this.inputHandler = this.inputHandler.bind(this);
         this.delBook=this.delBook.bind(this);
     }
-    async inputHandler(v) {
-        await this.setState({ bookname: v });
-        const response = await reqFindBook({bookname:this.state.bookname});
-        if (response.code === 0) {
-            this.setState({ res: response.data });
-        }
-        this.setState({showTip:true});
-    }
-    async clickIcon(index) {
-        await this.setState(prevState => {
-            if (prevState.iconColor.includes(index)) {
-                let newIconColor = prevState.iconColor.filter(item => item != index);
-                let newSelectedCards = prevState.selectedCards.filter(item => item != prevState.res[index]._id);
-                return {
-                    iconColor: newIconColor,
-                    selectedCards: newSelectedCards
-                }
-            } else {
-                return {
-                    iconColor: [...prevState.iconColor, index],
-                    selectedCards:
-                        [...prevState.selectedCards, prevState.res[index]._id]
-                }
+    inputHandler(v) {
+        this.setState({ bookname: v });
+        this.searchTimer && clearTimeout(this.searchTimer);
+        this.searchTimer = setTimeout(async () => {
+            const response = await reqFindBook({bookname:this.state.bookname});
+            if (response.code === 0) {
+                this.setState({ res: response.data });
             }
+            this.setState({showTip:true});
+        }, 500);
+    }
+    async clickIcon(item) {
+        this.setState(prevState => {
+                return {
+                    selectedCards: [...prevState.selectedCards, item._id]
+                }
         }
         );
     }
     async delBook(){
+      if (!this.state.selectedCards.length) {
+          Toast.info("请先选择要删除的图书！");
+          return;
+      }
       const response1= await reqDelBook(this.state.selectedCards);
       Toast.info(response1.msg,1);
       if(response1.code===0){
         this.setState({
-            iconColor: [],
             selectedCards: [],
         })
         const response2 = await reqFindBook({bookname:this.state.bookname});
         if (response2.code === 0) {
-           await this.setState({ res: response2.data });
+        this.setState({ res: response2.data });
         }
       }
+    }
+    componentWillUnmount() {
+        this.searchTimer && clearTimeout(this.searchTimer);
     }
     render() {
         return (
@@ -69,9 +69,9 @@ export default class Del extends React.Component {
                 {
                     this.state.res.map((item, index) => {
                         return (
-                            <div className="card" key={index}>
+                            <div className="card" key={index} onClick={this.clickIcon.bind(this, item)}>
                                 <Badge text={item.booktype} style={{padding: '0 3px', backgroundColor: '#21b68a', borderRadius: 2,left:"-1rem",top:"-1rem" }} />
-                                <Icon type="check-circle-o" size="md" color={this.state.iconColor.includes(index) ? "green" : "#000"} className="circle" onClick={this.clickIcon.bind(this, index)} />
+                                <Icon type="check-circle-o" size="md" color={this.state.selectedCards.includes(item._id) ? "rgb(33, 182, 138)" : "#fff"} className="circle"/>
                                 <div className="img-name-price">
                                     <img className="img" src={item.img} />
                                     <div className="name-price">
@@ -90,3 +90,4 @@ export default class Del extends React.Component {
         );
     }
 }
+

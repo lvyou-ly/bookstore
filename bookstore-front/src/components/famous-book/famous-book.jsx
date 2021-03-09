@@ -12,7 +12,7 @@ class FamousBook extends React.Component{
     }
     async componentWillMount(){
         const response=await reqFindBook({"booktype":"名著"});
-        await this.setState({res: response.data});
+        this.setState({res: response.data});
     }
     jumpBookDetail(item){
         item.count=1;
@@ -27,15 +27,7 @@ class FamousBook extends React.Component{
                         return (
                             <div className="card" key={index} onClick={this.jumpBookDetail.bind(this,item)}>
                                 <img src={item.img} alt=""/>
-                                <p className="famous-book-name"
-                                 style={{
-                                    "overflow": "hidden",
-                                    "textOverflow": "ellipsis",
-                                    "display": "-webkit-box",
-                                    "WebkitLineClamp": "2",
-                                    "WebkitBoxOrient": "vertical"
-                                }}
-                                >{item.bookname}</p>
+                                <p className="famous-book-name">{item.bookname}</p>
                                 <p className="famous-book-price">￥{item.bookprice}</p>
                             </div>
                         )
