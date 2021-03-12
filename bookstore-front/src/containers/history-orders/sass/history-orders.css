@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  background-color: #fff !important;
+}
+
 .nav {
   position: fixed;
   width: 100vw;
@@ -15,7 +20,7 @@
   padding: 0.2rem;
   box-shadow: 0 0 0.1rem antiquewhite;
   margin: 1rem auto 0;
-  background-color: rgba(255, 85, 0, 0.188235);
+  background-color: rgba(16, 142, 233, 0.5);
   border-radius: 0.6rem;
 }
 
