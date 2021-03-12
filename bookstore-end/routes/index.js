@@ -428,7 +428,7 @@ router.post('/updatechart', function (req, res) {
             doc.chart.splice(index, 1, { ...doc.chart[index], count: doc.chart[index].count + 1 })
           }
       }
-      UserModel.findByIdAndUpdate(_id, doc, (err2, doc2) => {
+      UserModel.findByIdAndUpdate(_id, doc, (err2) => {
         res.send({
           code: err2 ? 1 : 0,
           data: err2 ? null : doc.chart,
